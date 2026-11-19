@@ -70,6 +70,23 @@ ggplot() +
 3.  Where was forest lost between 2006 and 2023? Sum those layers and map them with the parks on top.
 :::
 
+```{r}
+ggplot() +
+  geom_sf(data = belize, fill = "DARKGREY", colour = "cornflowerblue") +
+  geom_sf(data = pa, aes(fill = STATUS_YR), colour = "cyan", linewidth = 0.3) +
+  scale_fill_distiller(palette = "Greens", direction = 1) + 
+  coord_sf(expand = FALSE) + 
+  labs(
+    fill = "Designation\nyear",
+    title = "Protected areas in Belize per Year"
+  ) +
+  theme_void()
+  
+
+```
+
+
+
 ::: {.callout-note title="Solution" collapse="true"}
 ```{r}
 #| label: look-solution
